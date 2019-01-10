@@ -21,6 +21,7 @@ import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public final class Version {
 
@@ -32,7 +33,7 @@ public final class Version {
   }
 
   public static String versionFromResource() throws IOException {
-    return Resources.toString(Resources.getResource("version"), Charsets.UTF_8);
+    return Resources.toString(Resources.getResource("version"), StandardCharsets.UTF_8);
   }
 
   public static void main(String[] args) throws IOException {
