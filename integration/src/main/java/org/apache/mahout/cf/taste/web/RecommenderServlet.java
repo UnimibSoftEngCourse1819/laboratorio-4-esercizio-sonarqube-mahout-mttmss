@@ -76,7 +76,7 @@ public final class RecommenderServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request,
-                    HttpServletResponse response) throws ServletException {
+                    HttpServletResponse response) throws ServletException, NumberFormatException  {
 
     String userIDString = request.getParameter("userID");
     if (userIDString == null) {
@@ -84,7 +84,13 @@ public final class RecommenderServlet extends HttpServlet {
     }
     long userID = Long.parseLong(userIDString);
     String howManyString = request.getParameter("howMany");
-    int howMany = howManyString == null ? DEFAULT_HOW_MANY : Integer.parseInt(howManyString);
+    int howMany = 0;
+    try {
+    	howMany = howManyString == null ? DEFAULT_HOW_MANY : Integer.parseInt(howManyString);
+    }
+    catch(NumberFormatException e) {
+    	 throw e;
+    }
     boolean debug = Boolean.parseBoolean(request.getParameter("debug"));
     String format = request.getParameter("format");
     if (format == null) {
