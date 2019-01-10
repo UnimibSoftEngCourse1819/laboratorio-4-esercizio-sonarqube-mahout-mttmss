@@ -90,6 +90,11 @@ public interface RecommenderEvaluator {
   @Deprecated
   float getMaxPreference();
 
+  /**
+   * 
+   *
+   * @deprecated use {@link DataModel#setMaxPreference()} .  
+   */
   @Deprecated
   void setMaxPreference(float maxPreference);
 
